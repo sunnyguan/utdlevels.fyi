@@ -31,22 +31,21 @@ const fetcher = async (...args) => {
 };
 
 const AuthenticatedPage = (props) => {
-    const {data} = useSWR(`/api/courses/10`, fetcher);
     const auth = useAuth();
     const router = useRouter();
 
-    if (!data) {
-        return 'Loading...';
-    }
-
     return (
-        <div className="p-8">
-            <button onClick={() => {
-                auth.signout().then(_ => router.push("/"));
-            }}>Sign out
-            </button>
-            <h1 className="text-2xl">Title: {data.titleLong}</h1>
-            <p className="text-blue-600">Description: {data.description}</p>
+        <div className="flex h-screen w-screen">
+            <div className="flex w-1/4 bg-gray-200 p-4 align-middle">
+                <div>
+                    Left
+                </div>
+                <button onClick={() => {
+                    auth.signout().then(_ => router.push("/"));
+                }} className="mb-4 mt-auto button px-4 py-2 font-light rounded-2xl bg-red-300 font-bold hover:bg-red-400 shadow-md border-red-500 border-4 focus:outline-none hover:text-white;">Sign out
+                </button>
+            </div>
+            <div className="m-4">Right</div>
         </div>
     );
 };
