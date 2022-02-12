@@ -11,7 +11,7 @@ export const getServerSideProps = async (ctx) => {
         return {
             redirect: {
                 permanent: false,
-                destination: "/console",
+                destination: "/dashboard",
             },
             props: {}
         };
@@ -36,14 +36,17 @@ export default function Home() {
             <div class="p-4 backdrop-blur-sm w-1/3 mr-0 ml-auto h-full flex border-l-4 border-green-500 align-middle" style={{
                 backdropFilter: "blur(24px)"
             }}>
-                <div class="m-auto">
+                <div class="m-auto flex flex-col">
+                    <div class="text-center font-bold text-3xl text-green-300 mb-8">
+                        Comet Visor
+                    </div>
                     <button className="button px-8 py-4 font-light rounded-2xl bg-green-300 font-bold hover:bg-green-400 shadow-md border-green-500 border-4 focus:outline-none hover:text-white;" onClick={() => {
                         var provider = new firebase.auth.GoogleAuthProvider();
                         firebase.auth()
                             .signInWithPopup(provider)
                             .then((result) => {
                                 console.log(result.user);
-                                router.push("/console")
+                                router.push("/dashboard")
                             }).catch((error) => {
                             console.error(error);
                         });
