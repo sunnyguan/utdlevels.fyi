@@ -90,7 +90,7 @@ const AuthenticatedPage = (props) => {
                 </button>
             </div>
             <div className="w-full">
-                <Header username={auth.user.displayName}/>
+                <Header username={auth.user ? auth.user.displayName : "User"}/>
                 {switchPage()}
             </div>
         </div>
