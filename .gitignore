@@ -38,5 +38,3 @@ yarn-error.log*
 keys.json
 .idea/
 misc/
-# Local Netlify folder
-.netlify
