@@ -38,7 +38,7 @@ export default function Home() {
             }}>
                 <div class="m-auto flex flex-col">
                     <div class="text-center font-bold text-3xl text-green-300 mb-8">
-                        Comet Visor
+                        UTD Levels
                     </div>
                     <button className="button px-8 py-4 font-light rounded-2xl bg-green-300 font-bold hover:bg-green-400 shadow-md border-green-500 border-4 focus:outline-none hover:text-white;" onClick={() => {
                         var provider = new firebase.auth.GoogleAuthProvider();

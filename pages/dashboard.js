@@ -74,7 +74,7 @@ const AuthenticatedPage = (props) => {
         <div className="flex h-screen w-screen">
             <div className="flex flex-col w-1/4 bg-gray-200 p-4 align-middle">
                 <div className="mx-auto">
-                    <div className="font-bold text-2xl mb-8">Comet Visor</div>
+                    <div className="font-bold text-2xl mb-8">UTD Levels</div>
                 </div>
                 <div className="p-2">
                     <Tab name="Home" />
