@@ -1,6 +1,13 @@
 const Home = (props) => {
     return (
-        <div>Home</div>
+        <div className="p-4 w-full">
+            <div>
+                Info
+            </div>
+            <div>
+                Table
+            </div>
+        </div>
     )
 }
 
