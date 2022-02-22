@@ -41,7 +41,9 @@ const Home = (props) => {
     return (
         <div className="p-4 w-full">
             <div>
-                Info
+                <div className="w-full text-center p-4 rounded-xl bg-blue-200 mb-4">
+                    Levels FYI
+                </div>
             </div>
             <div className="w-full">
                 <table className="table-auto w-full p-4">
