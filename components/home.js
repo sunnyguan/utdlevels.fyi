@@ -10,13 +10,13 @@ const Th = ({children}) => {
 
 const Tr = ({children}) => {
     return (
-        <tr className="">{children}</tr>
+        <tr className="border-2 border-t-0">{children}</tr>
     )
 }
 
 const Td = ({children}) => {
     return (
-        <td className="border-2">{children}</td>
+        <td className="">{children}</td>
     )
 }
 
@@ -41,12 +41,12 @@ const Home = (props) => {
     return (
         <div className="p-4 w-full">
             <div>
-                <div className="w-full text-center p-4 rounded-xl bg-blue-200 mb-4">
-                    Levels FYI
+                <div className="text-center mx-24 py-4 rounded-xl bg-blue-200 mb-4 shadow-lg">
+                    Internships are the surest path to a full-time job.
                 </div>
             </div>
-            <div className="w-full">
-                <table className="table-auto w-full p-4">
+            <div className="m-8">
+                <table className="table-auto w-full">
                     <thead className="bg-gray-100">
                         <tr>
                             <Th>Company</Th>

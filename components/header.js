@@ -7,20 +7,14 @@ const Header = ({username}) => {
     const router = useRouter();
 
     return (
-        <div className="bg-gray-100 p-4 flex">
-            <div className="ml-auto mr-0 flex gap-4">
-                <div>
-                    Friday, October 1st
-                </div>
-                <div>
-                    ☁️73°
-                </div>
-                <div className="border-l-2 border-gray-600 px-2">
+        <div className="bg-blue-100 p-4 flex pt-4 pb-12 -mb-12">
+            <div className="inline-block ml-auto mr-0 flex gap-4 align-middle">
+                <div className="my-auto px-2">
                     {username}
                 </div>
                 <button onClick={() => {
                     auth.signout().then(_ => router.push("/"));
-                }} className="underline text-blue-800">Sign out
+                }} className="px-4 py-2 bg-blue-50 text-blue-800 border-blue-300 hover:bg-blue-200 rounded-xl">Sign out
                 </button>
             </div>
         </div>
