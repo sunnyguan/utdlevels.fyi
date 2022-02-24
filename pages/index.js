@@ -27,17 +27,17 @@ export default function Home() {
     const router = useRouter();
 
     return (
-        <div class="bg-green-100 h-screen w-screen" style={{
+        <div className="bg-green-100 h-screen w-screen" style={{
             backgroundImage: "url(" + "https://www.siliconvalley.com/wp-content/uploads/2018/05/sjm-l-jobstheater-0910-31.jpg" + ")",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
         }}>
-            <div class="p-4 backdrop-blur-sm w-1/3 mr-0 ml-auto h-full flex border-l-4 border-green-500 align-middle" style={{
+            <div className="p-4 backdrop-blur-sm w-1/3 mr-0 ml-auto h-full flex border-l-4 border-green-500 align-middle" style={{
                 backdropFilter: "blur(24px)"
             }}>
-                <div class="m-auto flex flex-col">
-                    <div class="text-center font-bold text-3xl text-green-300 mb-8">
+                <div className="m-auto flex flex-col">
+                    <div className="text-center font-bold text-3xl text-green-300 mb-8">
                         UTD Levels
                     </div>
                     <button className="button px-8 py-4 font-light rounded-2xl bg-green-300 font-bold hover:bg-green-400 shadow-md border-green-500 border-4 focus:outline-none hover:text-white;" onClick={() => {

@@ -7,7 +7,10 @@ const Header = ({username}) => {
     const router = useRouter();
 
     return (
-        <div className="bg-blue-100 p-4 flex pt-4 pb-12 -mb-12">
+        <div className="bg-blue-100 p-12 flex pt-6 pb-14 -mb-12">
+            <div className="flex my-auto place-items-center">
+                <div className="font-light text-2xl">UTD Levels.FYI</div>
+            </div>
             <div className="inline-block ml-auto mr-0 flex gap-4 align-middle">
                 <div className="my-auto px-2">
                     {username}
