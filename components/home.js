@@ -71,7 +71,7 @@ const Home = (props) => {
                         <Td>{salary.details}</Td>
                         <Td>
                             {salary.experiences.map(experience =>
-                                <div className="ml-4 text-blue-600 cursor-pointer hover:underline hover:text-blue-700"
+                                <div className="text-blue-600 cursor-pointer hover:underline hover:text-blue-700"
                                    onClick={(e) => {
                                        setExperience({
                                            display: true,
