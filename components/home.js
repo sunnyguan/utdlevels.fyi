@@ -72,16 +72,17 @@ const Home = (props) => {
                         Add Internship
                     </button>
                 </div>
-                <table className="table-auto w-full">
-                    <thead className="bg-gray-100">
+                <div>
+                    <table className="table-auto w-full">
+                        <thead className="bg-gray-100">
                         <tr>
                             <Th>Company</Th>
                             <Th>Hourly Salary</Th>
                             <Th>Details</Th>
                             <Th>Experiences</Th>
                         </tr>
-                    </thead>
-                    <tbody className="text-center">
+                        </thead>
+                        <tbody className="text-center">
                         {salaries.filter(salary => salary.company.toLowerCase().startsWith(filter.toLowerCase())).map(salary =>
                             <Tr key={salary.company}>
                                 <Td>{salary.company}</Td>
@@ -92,7 +93,10 @@ const Home = (props) => {
                                         <div>
                                             <a className="ml-4 text-blue-600 cursor-pointer hover:underline hover:text-blue-700"
                                                onClick={(e) => {
-                                                   setExperience({display: true, content: {...experience, company: salary.company}})
+                                                   setExperience({
+                                                       display: true,
+                                                       content: { ...experience, company: salary.company }
+                                                   })
                                                }}
                                             >
                                                 {experience.name}
@@ -102,8 +106,26 @@ const Home = (props) => {
                                 </Td>
                             </Tr>
                         )}
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                    {salaries.length == 0 ?
+                        <div className="flex items-center justify-center mt-8">
+                            <button type="button"
+                                    className="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed"
+                                    disabled="">
+                                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                            strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor"
+                                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                    ></path>
+                                </svg>
+                                Processing...
+                            </button>
+                        </div> : <></>
+                    }
+                </div>
             </div>
             <div id="defaultModal"
                  className={(experience.display ? "flex" : "hidden") + " overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0"}>
