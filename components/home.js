@@ -61,6 +61,7 @@ const Home = (props) => {
                     <Th>Hourly Salary</Th>
                     <Th>Details</Th>
                     <Th>Experiences</Th>
+                    <Th>Guide</Th>
                 </tr>
                 </thead>
                 <tbody className="text-center">
@@ -71,7 +72,7 @@ const Home = (props) => {
                         <Td>{salary.details}</Td>
                         <Td>
                             {salary.experiences.map(experience =>
-                                <div className="text-blue-600 cursor-pointer hover:underline hover:text-blue-700"
+                                <div className="text-blue-600 cursor-pointer hover:underline hover:text-blue-700" key={experience.name}
                                    onClick={(e) => {
                                        setExperience({
                                            display: true,
@@ -82,6 +83,14 @@ const Home = (props) => {
                                     {experience.name}
                                 </div>
                             )}
+                        </Td>
+                        <Td>
+                            <a className="inline-block text-white bg-blue-600 hover:bg-blue-700 cursor-pointer py-2 px-4 rounded-lg focus:outline-none shadow-lg"
+                               href={"https://github.com/sunnyguan/utdlevels.fyi/blob/main/guides/" + salary.company.toLowerCase() + ".md"}
+                               target="_blank"
+                            >
+                                Guide
+                            </a>
                         </Td>
                     </tr>
                 )}
