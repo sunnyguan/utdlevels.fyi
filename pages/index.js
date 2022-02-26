@@ -27,20 +27,16 @@ export default function Home() {
     const router = useRouter();
 
     return (
-        <div className="bg-green-100 h-screen w-screen" style={{
-            backgroundImage: "url(" + "https://www.siliconvalley.com/wp-content/uploads/2018/05/sjm-l-jobstheater-0910-31.jpg" + ")",
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
-        }}>
-            <div className="p-4 backdrop-blur-sm w-1/3 mr-0 ml-auto h-full flex border-l-4 border-green-500 align-middle" style={{
-                backdropFilter: "blur(24px)"
-            }}>
+        <div className="grid grid-cols-2 h-screen">
+            <div className="p-4 h-full flex align-middle">
                 <div className="m-auto flex flex-col">
-                    <div className="text-center font-bold text-3xl text-green-300 mb-8">
+                    <div className="font-medium text-3xl mb-4">
                         UTD Levels
                     </div>
-                    <button className="button px-8 py-4 font-light rounded-2xl bg-green-300 font-bold hover:bg-green-400 shadow-md border-green-500 border-4 focus:outline-none hover:text-white;" onClick={() => {
+                    <div className="font-light mb-8">
+                        See salary information exclusive for UTD students!
+                    </div>
+                    <div className="w-full flex flex-row justify-center cursor-pointer px-8 py-4 font-bold rounded-full hover:bg-gray-100 shadow-md border-gray-300 border-2 focus:outline-none" onClick={() => {
                         var provider = new firebase.auth.GoogleAuthProvider();
                         firebase.auth()
                             .signInWithPopup(provider)
@@ -50,8 +46,20 @@ export default function Home() {
                             }).catch((error) => {
                             console.error(error);
                         });
-                    }}>Login with Google
-                    </button>
+                    }}>
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/google-1772223-1507807.png" width={24} className="mr-4"/>
+                        Sign in with Google
+                    </div>
+                </div>
+            </div>
+            <div className="mx-auto flex flex-col text-center bg-indigo-600 w-full p-16">
+                <div className="flex flex-col flex-grow bg-white rounded-3xl">
+                    <div className="flex flex-grow p-12">
+                        <img className="object-cover rounded-lg" src="https://docs.microsoft.com/en-us/power-bi/consumer/media/end-user-dashboards/power-bi-dashboard.png"/>
+                    </div>
+                    <div className="p-4 tracking-widest">
+                        1 2 3
+                    </div>
                 </div>
             </div>
         </div>
