@@ -2,6 +2,7 @@ import firebase from '../lib/firebase';
 import nookies from "nookies";
 import {auth} from "../lib/firebaseAdmin";
 import {useRouter} from 'next/router'
+import { useState } from 'react';
 
 
 export const getServerSideProps = async (ctx) => {
@@ -25,6 +26,12 @@ export default function Home() {
 
     // const auth = useAuth();
     const router = useRouter();
+    const [imageId, setImageId] = useState(0);
+    const images = [
+        "https://docs.microsoft.com/en-us/power-bi/consumer/media/end-user-dashboards/power-bi-dashboard.png",
+        "https://www.logianalytics.com/dashboarddesignguide/wp-content/uploads/2015/09/Chapter-6-Flat-Design.png",
+        "https://luna1.co/26100b.png"
+    ]
 
     return (
         <div className="grid grid-cols-2 h-screen">
@@ -55,10 +62,14 @@ export default function Home() {
             <div className="mx-auto flex flex-col text-center bg-indigo-600 w-full p-16">
                 <div className="flex flex-col flex-grow bg-white rounded-3xl">
                     <div className="flex flex-grow p-12">
-                        <img className="object-cover rounded-lg" src="https://docs.microsoft.com/en-us/power-bi/consumer/media/end-user-dashboards/power-bi-dashboard.png"/>
+                        <img className="object-cover rounded-lg" src={images[imageId]}/>
                     </div>
-                    <div className="p-4 tracking-widest">
-                        1 2 3
+                    <div className="p-4 mb-4 tracking-widest flex flex-row mx-auto gap-8">
+                        {images.map((item, idx) =>
+                            <div onClick={(e) => {setImageId(idx)}}
+                            className={"cursor-pointer bg-blue-200 bg-blue-300 rounded-full w-8 h-8 " + (imageId === idx ? "border-2 border-blue-500" : "")}>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
