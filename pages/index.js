@@ -66,7 +66,7 @@ export default function Home() {
                     </div>
                     <div className="p-4 mb-4 tracking-widest flex flex-row mx-auto gap-8">
                         {images.map((item, idx) =>
-                            <div onClick={(e) => {setImageId(idx)}}
+                            <div key={idx} onClick={(e) => {setImageId(idx)}}
                             className={"cursor-pointer bg-blue-200 bg-blue-300 rounded-full w-8 h-8 " + (imageId === idx ? "border-2 border-blue-500" : "")}>
                             </div>
                         )}
