@@ -21,12 +21,16 @@ const Home = (props) => {
     const [salaries, setSalaries] = useState([]);
     const [filter, setFilter] = useState("");
     const [experience, setExperience] = useState({display: false, content: {}});
+    const [asc, setAsc] = useState(false);
 
     useEffect(() => {
         async function fetchSalary() {
             fetch('/api/salary')
                 .then(v => v.json())
                 .then(data => {
+                    data.sort((a, b) => {
+                        return b.salary - a.salary;
+                    });
                     setSalaries(data);
                 })
                 .catch(err => {
@@ -35,6 +39,7 @@ const Home = (props) => {
         }
         fetchSalary();
     }, []);
+    
 
     const searchFilter = (e) => {
         const newFilter = e.target.value;
@@ -45,19 +50,49 @@ const Home = (props) => {
         setExperience({display: false, content: {}});
     }
 
+    const ascending = () => {
+        if (asc == true)
+        {
+            return;
+        }
+        else
+        {
+            setAsc(true);
+            salaries.sort((a, b) => {
+                return a.salary - b.salary;
+            });
+        }
+    }
+
+    const descending = () => {
+        if (asc == false)
+        {
+            return;
+        }
+        setAsc(false);
+        salaries.sort((a, b) => {
+            return b.salary - a.salary;
+        });
+    }
+
+
     return (
-        <div className="p-4 mx-96">
-            <div className="my-8 flex -mx-36">
+        <div className="p-4 w-full flex flex-col items-center">
+            <div className="my-8 flex w-5/6 ">
                 <input className="border-2 rounded-lg flex-grow p-2 mr-2" placeholder="Search" value={filter} onChange={searchFilter}/>
                 <button className="text-white bg-blue-600 hover:bg-blue-700 cursor-pointer px-4 rounded-lg focus:outline-none">
                     Add Internship
                 </button>
             </div>
-            <div className="w-full">
+            <div className="w-4/6">
                 <div className="bg-gray-100 rounded-xl py-4 shadow-md">
                     <div className="grid grid-cols-6 text-center">
                         <div>Company</div>
-                        <div>Hourly Salary</div>
+                        <div className='flex flex-row justify-center gap-2'>
+                            Hourly Salary
+                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/arrow-up-black-up-arrow-115632617737cvxxumden.png" width='16' height='16' onClick={() => ascending()}></img>
+                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/down-arrow-black-arrow-down-11562910488ntpji5lifi.png" width='17' height='16' onClick={() =>descending()}></img>
+                        </div>
                         <div className="col-span-2">Details</div>
                         <div>Experiences</div>
                         <div>Guide</div>
