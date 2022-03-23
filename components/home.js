@@ -90,8 +90,8 @@ const Home = (props) => {
                         <div>Company</div>
                         <div className='flex flex-row justify-center gap-2'>
                             Hourly Salary
-                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/arrow-up-black-up-arrow-115632617737cvxxumden.png" width='16' height='16' onClick={() => ascending()}></img>
-                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/down-arrow-black-arrow-down-11562910488ntpji5lifi.png" width='17' height='16' onClick={() =>descending()}></img>
+                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/arrow-up-black-up-arrow-115632617737cvxxumden.png" width='10%' height='auto' onClick={() => ascending()}></img>
+                            <img className='cursor-pointer' src="https://toppng.com/uploads/preview/down-arrow-black-arrow-down-11562910488ntpji5lifi.png" width='10%' height='13%' onClick={() =>descending()}></img>
                         </div>
                         <div className="col-span-2">Details</div>
                         <div>Experiences</div>
